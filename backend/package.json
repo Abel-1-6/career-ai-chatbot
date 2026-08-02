@@ -1,0 +1,19 @@
+{
+  "name": "career-ai-backend",
+  "version": "1.0.0",
+  "description": "Backend API for AI Career Advisor chatbot",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.15.0",
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "uuid": "^9.0.1"
+  }
+}
