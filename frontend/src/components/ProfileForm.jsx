@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 const EXPERIENCE_LEVELS = [
   { value: "student", label: "Student" },
   { value: "entry", label: "Entry-level" },
@@ -31,7 +34,7 @@ export default function ProfileForm({ onCreated }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/profile", {
+      const res = await fetch(`${API_URL}/api/profile`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -67,7 +70,7 @@ export default function ProfileForm({ onCreated }) {
           <input
             value={form.currentRole}
             onChange={update("currentRole")}
-            placeholder="e.g. CS student, Modem Test Engineer"
+            placeholder="e.g. CS student, Software Engineer.."
             className="input"
           />
         </Field>

@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import CompassMark from "./CompassMark.jsx";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 export default function Chat({ user, conversationId, onNeedConversation }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -17,7 +20,7 @@ export default function Chat({ user, conversationId, onNeedConversation }) {
   }, [messages, sending]);
 
   async function loadMessages(id) {
-    const res = await fetch(`/api/chat/conversations/${id}/messages`);
+   const res = await fetch(`${API_URL}/api/chat/conversations/${id}/messages`);
     const data = await res.json();
     setMessages(data);
   }

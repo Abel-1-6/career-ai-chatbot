@@ -4,6 +4,9 @@ import Sidebar from "./components/Sidebar.jsx";
 import Chat from "./components/Chat.jsx";
 import ResumeReview from "./components/ResumeReview.jsx";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:3001";
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [view, setView] = useState("chat");
@@ -15,7 +18,7 @@ export default function App() {
   useEffect(() => {
     const savedId = localStorage.getItem("careerAdvisorUserId");
     if (savedId) {
-      fetch(`/api/profile/${savedId}`)
+      fetch(`${API_URL}/api/profile/${savedId}`)
         .then((r) => (r.ok ? r.json() : null))
         .then((u) => u && setUser(u))
         .finally(() => setLoadingUser(false));
@@ -32,14 +35,14 @@ export default function App() {
   }, [user]);
 
   async function refreshConversations(userId) {
-    const res = await fetch(`/api/chat/conversations/user/${userId}`);
+  const res = await fetch(`${API_URL}/api/chat/conversations/user/${userId}`);
     const data = await res.json();
     setConversations(data);
     if (data.length > 0 && !activeId) setActiveId(data[0].id);
   }
 
   async function createConversation(title) {
-    const res = await fetch("/api/chat/conversations", {
+   const res = await fetch(`${API_URL}/api/chat/conversations`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ userId: user.id, title }),
