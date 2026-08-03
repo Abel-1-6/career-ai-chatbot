@@ -38,7 +38,7 @@ export default function Chat({ user, conversationId, onNeedConversation }) {
     setMessages((m) => [...m, { id: "temp-user", role: "user", content: text }]);
 
     try {
-      const res = await fetch(`/api/chat/conversations/${convoId}/messages`, {
+     const res = await fetch(`${API_URL}/api/chat/conversations/${convoId}/messages`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: text }),
