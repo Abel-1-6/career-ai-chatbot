@@ -8,6 +8,9 @@ import resumeRoutes from "./routes/resume.js";
 
 const result = dotenv.config();
 
+console.log("dotenv result:", result);
+console.log("API key:", process.env.GEMINI_API_KEY);
+
 
 const app = express();
 app.use(cors());

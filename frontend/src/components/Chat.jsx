@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CompassMark from "./CompassMark.jsx";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:3001";
@@ -115,7 +117,9 @@ function MessageBubble({ role, content, pending }) {
             : "bg-ink-soft text-paper border border-[#2E333F]"
         } ${pending ? "opacity-60 italic" : ""}`}
       >
-        {content}
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+  {content}
+</ReactMarkdown>
       </div>
     </div>
   );
