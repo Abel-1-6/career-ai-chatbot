@@ -121,7 +121,7 @@ career-ai-chatbot/
 git clone https://github.com/Abel-1-6/career-ai-chatbot.git
 ```
 
-Move into the project folder:
+
 
 ```bash
 cd career-ai-chatbot
@@ -175,29 +175,7 @@ http://localhost:5173
 
 ---
 
-# 📸 Screenshots
 
-*(Add screenshots once available.)*
-
-### User Profile
-
-```
-screenshots/profile.png
-```
-
-### AI Career Chat
-
-```
-screenshots/chat.png
-```
-
-### Resume Review
-
-```
-screenshots/resume-review.png
-```
-
----
 
 # 🎯 Future Improvements
 
