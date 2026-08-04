@@ -138,10 +138,6 @@ npm install
 
 Create a `.env` file:
 
-```env
-GEMINI_API_KEY=YOUR_API_KEY
-PORT=3001
-```
 
 Start the backend:
 
@@ -216,7 +212,7 @@ York University
 
 GitHub: https://github.com/Abel-1-6
 
-LinkedIn: linkedin.com/in/abel-takele
+LinkedIn: www.linkedin.com/in/abel-takele
 
 ---
 
