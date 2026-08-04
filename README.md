@@ -1,63 +1,165 @@
 # Compass — AI Career Advisor
 
-A full-stack chatbot that gives personalized career guidance: a persistent chat advisor,
-resume feedback, and profile-aware coaching, powered by Claude.
+Compass is a full-stack AI-powered career advisor built with **React**, **Node.js**, **Express**, **SQLite**, and **Google Gemini**. It helps students and job seekers receive personalized career guidance, resume analysis, and profile-based coaching through an intelligent conversational interface.
 
-## Features
+---
 
-- **Personalized advisor chat** — every reply is grounded in the user's stated role, target
-  role, skill set, and experience level, not a generic script
-- **Persistent conversations** — chat history is stored per user in SQLite and can be revisited
-- **Resume review** — paste resume text and target role, get structured feedback (strengths,
-  specific fixes with rewritten bullet examples, ATS notes, verdict)
-- **Profile system** — lightweight onboarding that captures the context the AI needs
+# 🚀 Live Demo
 
-## Tech stack
+- **Frontend:** https://career-ai-chatbot-chi.vercel.app/
+- **Backend API:** https://career-ai-chatbot.onrender.com/
 
-| Layer     | Tech |
-|-----------|------|
-| Frontend  | React 18, Vite, Tailwind CSS |
-| Backend   | Node.js, Express |
-| Database  | SQLite (better-sqlite3) |
-| AI        | Anthropic Claude API (`@anthropic-ai/sdk`) |
+---
 
-## Architecture
+# ✨ Features
 
-```
+## 🤖 AI Career Advisor
+
+- Personalized AI career coaching
+- Profile-aware responses
+- Persistent conversations
+- Career planning guidance
+- Interview preparation
+- Skill gap analysis
+- Career roadmap suggestions
+
+---
+
+## 👤 User Profiles
+
+Create a personalized profile including:
+
+- Name
+- Current role
+- Experience level
+- Target role
+- Skills
+- Interests
+
+The AI uses this information to provide tailored career advice.
+
+---
+
+## 📄 Resume Review
+
+- AI-powered resume analysis
+- Resume score (0–100)
+- ATS optimization suggestions
+- Resume strengths
+- Areas for improvement
+- Improved resume bullet points
+- Missing skills recommendations
+
+> 🚧 PDF resume upload is currently being finalized.
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- React Markdown
+- Remark GFM
+
+## Backend
+
+- Node.js
+- Express.js
+- SQLite (better-sqlite3)
+- Multer
+- PDF Parser
+- Google Gemini 2.5 Flash API
+
+---
+
+# 📁 Project Structure
+
+```text
 career-ai-chatbot/
+│
 ├── backend/
-│   ├── server.js            # Express app entry point
-│   ├── db/database.js       # SQLite schema + connection
-│   └── routes/
-│       ├── profile.js       # User profile CRUD
-│       ├── chat.js          # Conversations + AI-powered messaging
-│       └── resume.js        # AI-powered resume feedback
-└── frontend/
-    └── src/
-        ├── App.jsx
-        └── components/
-            ├── ProfileForm.jsx
-            ├── Sidebar.jsx
-            ├── Chat.jsx
-            ├── ResumeReview.jsx
-            └── CompassMark.jsx
+│   ├── db/
+│   │   └── database.js
+│   │
+│   ├── routes/
+│   │   ├── chat.js
+│   │   ├── profile.js
+│   │   └── resume.js
+│   │
+│   ├── uploads/
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Chat.jsx
+│   │   │   ├── CompassMark.jsx
+│   │   │   ├── ProfileForm.jsx
+│   │   │   ├── ResumeReview.jsx
+│   │   │   └── Sidebar.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   └── package.json
+│
+└── README.md
 ```
 
-## Setup
+---
 
-### 1. Backend
+# ⚙️ Installation
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/Abel-1-6/career-ai-chatbot.git
+```
+
+Move into the project folder:
+
+```bash
+cd career-ai-chatbot
+```
+
+---
+
+## 2. Backend Setup
 
 ```bash
 cd backend
 npm install
-cp .env.example .env
-# edit .env and set ANTHROPIC_API_KEY=sk-ant-...
+```
+
+Create a `.env` file:
+
+```env
+GEMINI_API_KEY=YOUR_API_KEY
+PORT=3001
+```
+
+Start the backend:
+
+```bash
 npm start
 ```
 
-Runs on `http://localhost:3001`. The SQLite database file is created automatically on first run.
+Backend runs on:
 
-### 2. Frontend
+```
+http://localhost:3001
+```
+
+---
+
+## 3. Frontend Setup
+
+Open another terminal:
 
 ```bash
 cd frontend
@@ -65,30 +167,78 @@ npm install
 npm run dev
 ```
 
-Runs on `http://localhost:5173` and proxies `/api` requests to the backend.
+Frontend runs on:
 
-Get an API key at https://console.anthropic.com/ if you don't have one.
+```
+http://localhost:5173
+```
 
-## Using this project on a resume
+---
 
-Suggested resume bullet points (adjust to match what you actually built/changed):
+# 📸 Screenshots
 
-- Built a full-stack AI career-advisory chatbot (React, Node/Express, SQLite, Claude API)
-  delivering profile-aware guidance and persistent multi-turn conversations
-- Designed a REST API with 3 resource domains (profiles, conversations, resume reviews) and a
-  normalized SQLite schema for chat history
-- Implemented an AI-powered resume review feature returning structured, line-level feedback
-  rather than generic suggestions
+*(Add screenshots once available.)*
 
-### Making it stand out further (optional next steps)
+### User Profile
 
-- Deploy backend (Render/Railway) + frontend (Vercel) and link a live demo
-- Add auth (so it's multi-user for real, not just per-browser via localStorage)
-- Add automated tests for the API routes
-- Swap SQLite for Postgres if you want a "production-grade" story in interviews
+```
+screenshots/profile.png
+```
 
-## Notes
+### AI Career Chat
 
-- The frontend currently identifies "the user" via a browser-local ID (no login) — fine for a
-  portfolio demo, call this out as a known simplification if asked in an interview.
-- Never commit your `.env` file or API key.
+```
+screenshots/chat.png
+```
+
+### Resume Review
+
+```
+screenshots/resume-review.png
+```
+
+---
+
+# 🎯 Future Improvements
+
+- Finish PDF resume upload
+- AI-generated cover letters
+- AI mock interview simulator
+- Personalized learning roadmap
+- Job application tracker
+- LinkedIn profile review
+- Authentication (login/signup)
+- PostgreSQL support
+- Email notifications
+
+---
+
+# 💡 Skills Demonstrated
+
+- Full-Stack Development
+- REST API Design
+- React Development
+- Node.js & Express
+- SQLite Database Design
+- AI API Integration
+- File Upload Handling
+- Prompt Engineering
+- Responsive UI Design
+- State Management
+- CRUD Operations
+
+---
+
+# 👨‍💻 Author
+
+**Abel Takele**
+
+Bachelor of Science in Computer Science  
+York University
+
+GitHub: https://github.com/Abel-1-6
+
+LinkedIn: linkedin.com/in/abel-takele
+
+---
+
